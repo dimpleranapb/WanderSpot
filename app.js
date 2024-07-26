@@ -16,6 +16,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
+const PORT = process.env.PORT || 6010
+
 
 
 // Middleware
@@ -124,6 +126,6 @@ app.use((err, req, res, next) => {
 // });
 
 // Start server
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("Server is listening on port 8080");
 });

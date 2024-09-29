@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") -%>
+
+<div id="search-results">
+  <h2>Search Results for "<%= query %>"</h2>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% if (listings.length > 0) { %> <% for (let listing of listings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card col listing-card" style="width: 20rem">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          style="height: 20rem"
+          alt="listing_image"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b><br />
+            &#8377;<%= listing.price.toLocaleString("en-IN") %> / Night
+            <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %> <% } else { %>
+    <p>No results found for your search.</p>
+    <% } %>
+  </div>
+</div>

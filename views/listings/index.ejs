@@ -3,18 +3,21 @@
   #filters {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Centers filters horizontally */
     align-items: center;
+    margin: 2rem 0; /* Adds space above and below the filter section */
   }
 
-a {
-  color: black;
-  text-decoration: none;
-}
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
   .filter {
     text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
+    margin: 1rem; /* Reduces margin for better spacing */
     opacity: 0.7;
+    transition: opacity 0.2s; /* Smooth opacity transition */
   }
 
   .filter:hover {
@@ -24,6 +27,7 @@ a {
 
   .filter p {
     font-size: 0.8rem;
+    margin-top: 0.5rem; /* Adds spacing between icon and text */
   }
 
   .tax-info {
@@ -38,6 +42,11 @@ a {
     margin-left: 2rem;
     display: flex;
     align-items: center;
+  }
+
+  /* Responsive design */
+  .listing-card {
+    margin: 1rem; /* Spacing between cards */
   }
 </style>
 
@@ -103,7 +112,7 @@ a {
     </a>
   </div>
   <div class="tax-toggle">
-    <div class="form-check-reverse form-switch">
+    <div class="form-check form-switch">
       <input
         class="form-check-input"
         type="checkbox"
@@ -145,11 +154,7 @@ a {
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info");
     for (let info of taxInfo) {
-      if (info.style.display !== "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
+      info.style.display = info.style.display !== "inline" ? "inline" : "none";
     }
   });
 </script>

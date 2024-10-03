@@ -11,7 +11,7 @@
     <h3 class="mb-3 text-center"><%= listing.title %></h3>
 
     <!-- Card Component -->
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow-sm mb-4 p-3">
       <!-- Card Image with Lazy Loading -->
       <img
         src="<%= listing.image.url %>"
@@ -34,7 +34,7 @@
 
         <!-- Edit/Delete Buttons (Conditional) -->
         <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
-        <div class="d-flex justify-content-between mt-3">
+        <div class="d-flex justify-content-between mt-3 ">
           <a
             href="/listings/<%= listing._id %>/edit"
             class="btn btn-outline-dark btn-sm"

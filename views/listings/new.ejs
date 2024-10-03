@@ -1,81 +1,135 @@
 <% layout("/layouts/boilerplate") -%>
-<div class="row">
-  <div class="col-8 offset-2">
-    <br /><br />
-    <h3>Create a New Listing</h3>
-    <form
-      method="POST"
-      action="/listings"
-      novalidate
-      class="needs-validation"
-      enctype="multipart/form-data"
-    >
-      <div class="mb-3">
-        <label for="title" class="form-lable"></label>
-        <input
-          name="listing[title]"
-          placeholder="enter title"
-          type="text"
-          required
-          class="form-control"
-        />
-        <div class="valid-feedback">Title look goods!</div>
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-lable"></label>
-        <textarea
-          name="listing[description]"
-          placeholder="enter your description"
-          required
-          class="form-control"
-        ></textarea>
-        <div class="invalid-feedback">Please enter a short description</div>
-      </div>
-      <div class="mb-3">
-        <label for="image" sclass="form-lable">Upload Listing Image</label>
-        <input name="listing[image]" type="file" class="form-control" />
-        required
-      </div>
-      <div class="row">
-        <div class="mb-3 col-md-4">
-          <label for="price" class="form-lable"></label>
+<style>
+  /* Custom placeholder styling for faded look */
+  ::placeholder {
+    color: #6c757d; /* Lighter gray */
+    opacity: 0.6; /* Make the placeholder more faded */
+  }
+
+  /* Improved button styling */
+  .add-btn {
+    background-color: #343a40; /* Darker shade for button */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .add-btn:hover {
+    background-color: #495057; /* Slightly lighter color on hover */
+  }
+</style>
+
+<div class="container m-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h3 class="text-center mb-4">Create a New Listing</h3>
+      <form
+        method="POST"
+        action="/listings"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <!-- Title -->
+        <div class="mb-4">
+          <label for="title" class="form-label">Title</label>
           <input
-            name="listing[price]"
-            placeholder="enter Your Price"
+            name="listing[title]"
+            id="title"
+            placeholder="Enter a descriptive title"
+            type="text"
             required
             class="form-control"
           />
-          <div class="invalid-feedback">Please enter a valid price</div>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            Please enter a title for your listing.
+          </div>
         </div>
 
-        <div class="mb-3 col-md-8">
-          <label for="country" class="form-lable"></label>
+        <!-- Description -->
+        <div class="mb-4">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            id="description"
+            placeholder="Provide a brief description of the listing"
+            required
+            class="form-control"
+            rows="4"
+          ></textarea>
+          <div class="invalid-feedback">
+            Please enter a description for the listing.
+          </div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-4">
+          <label for="image" class="form-label">Upload Listing Image</label>
           <input
-            name="listing[country]"
-            placeholder="enter country"
+            name="listing[image]"
+            id="image"
+            type="file"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">
+            Please upload an image for the listing.
+          </div>
+        </div>
+
+        <!-- Price and Country in a Row -->
+        <div class="row">
+          <!-- Price -->
+          <div class="mb-4 col-md-4">
+            <label for="price" class="form-label">Price (&#8377;)</label>
+            <input
+              name="listing[price]"
+              id="price"
+              placeholder="Enter the price"
+              required
+              type="number"
+              class="form-control"
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <!-- Country -->
+          <div class="mb-4 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              name="listing[country]"
+              id="country"
+              placeholder="Enter the country of the listing"
+              required
+              type="text"
+              class="form-control"
+            />
+            <div class="invalid-feedback">Please enter a valid country.</div>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="mb-4">
+          <label for="location" class="form-label">Location</label>
+          <input
+            name="listing[location]"
+            id="location"
+            placeholder="Enter the location of the listing"
             required
             type="text"
             class="form-control"
           />
-          <div class="invalid-feedback">Country should be valid</div>
+          <div class="invalid-feedback">Please enter a valid location.</div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="location" class="form-lable"></label>
-        <input
-          name="listing[location]"
-          placeholder="enter your location"
-          required
-          type="text"
-          class="form-control"
-        />
-        <div class="invalid-feedback">Location should be valid</div>
-      </div>
 
-      <br /><br />
-      <button class="btn btn-dark add-btn">Add</button>
-      <br />
-      <br />
-    </form>
+        <!-- Submit Button (improved style) -->
+        <div class="text-left">
+          <button type="submit" class="btn add-btn">Add Listing</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

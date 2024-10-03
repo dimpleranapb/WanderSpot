@@ -92,23 +92,20 @@ module.exports.destroyListing = async (req, res) => {
   res.redirect("/listings");
 };
 
-
-
 module.exports.searchListings = async (req, res) => {
-    const { query } = req.query; // Get the search query from the request
-    try {
-        const searchResult = await Listing.find({
-            $or: [
-                { title: { $regex: query, $options: 'i' } }, // Case-insensitive search in title
-                { description: { $regex: query, $options: 'i' } } // Case-insensitive search in description
-            ]
-        });
+  const { query } = req.query; // Get the search query from the request
+  try {
+    const searchResult = await Listing.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } }, // Case-insensitive search in title
+        { description: { $regex: query, $options: "i" } }, // Case-insensitive search in description
+      ],
+    });
 
-        // Render the search results page with the results and the query
-        res.render('listings/searchResults.ejs', { listings: searchResult, query });
-    } catch (error) {
-        req.flash('error', 'An error occurred while searching for listings.');
-        res.redirect('/listings');
-    }
+    // Render the search results page with the results and the query
+    res.render("listings/searchResults.ejs", { listings: searchResult, query });
+  } catch (error) {
+    req.flash("error", "An error occurred while searching for listings.");
+    res.redirect("/listings");
+  }
 };
-

@@ -37,7 +37,7 @@ body {
 
 .f-info-socials i {
   margin-right: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* Increased icon size */
 }
 
 .f-info-links,
@@ -49,14 +49,33 @@ body {
   justify-content: center;
 }
 
+
+.f-info-socials i {
+  margin-right: 1rem;
+  font-size: 1.5rem; /* Increased icon size */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+
+.f-info-socials i:hover {
+  color: #007bff; /* Change color on hover (Bootstrap primary color) */
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+
 .f-info-links a {
   text-decoration: none;
   color: black;
+  margin: 0 1rem; /* Margin added for spacing */
 }
 
 .f-info-links a:hover {
   text-decoration: underline;
 }
+
+.f-info-brand {
+  font-weight: bold; /* Make brand text bold */
+}
+
 
 /* Card */
 .listing-card {

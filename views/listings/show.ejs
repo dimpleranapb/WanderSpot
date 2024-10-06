@@ -11,20 +11,20 @@
     <h3 class="mb-3 text-center"><%= listing.title %></h3>
 
     <!-- Card Component -->
-    <div class="card shadow-sm mb-4 p-3">
+    <div class="card shadow-lg mb-4 p-3 border rounded">
       <!-- Card Image with Lazy Loading -->
       <img
         src="<%= listing.image.url %>"
-        class="card-img-top show-img"
+        class="card-img-top show-img rounded-top"
         alt="<%= listing.title %>"
         loading="lazy"
       />
 
       <!-- Card Body -->
       <div class="card-body">
-        <p class="text-muted mb-2"><i>@<%= listing.owner.username %></i></p>
-        <p class="card-text mb-3"><%= listing.description %></p>
-        <p class="card-text text-success mb-2">
+        <p class="text-muted mb-1"><i>@<%= listing.owner.username %></i></p>
+        <p class="card-text mb-2"><%= listing.description %></p>
+        <p class="card-text text-success fw-bold mb-2">
           &#8377;<%= listing.price.toLocaleString("en-IN") %>
         </p>
         <p class="card-text">
@@ -34,17 +34,17 @@
 
         <!-- Edit/Delete Buttons (Conditional) -->
         <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
-        <div class="d-flex justify-content-between mt-3 ">
+        <div class="d-flex justify-content-between mt-3">
           <a
             href="/listings/<%= listing._id %>/edit"
-            class="btn btn-outline-dark btn-sm"
+            class="btn btn-primary btn-sm me-2"
             >Edit</a
           >
           <form
             method="POST"
             action="/listings/<%= listing._id %>?_method=DELETE"
           >
-            <button class="btn btn-outline-danger btn-sm">Delete</button>
+            <button class="btn btn-danger btn-sm">Delete</button>
           </form>
         </div>
         <% } %>

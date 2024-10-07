@@ -25,8 +25,8 @@
 
       <div class="mb-3">
         <label for="description" class="form-lable">Description</label>
-        <textarea name="listing[description]" class="form-control">
- required <%= listing.description %> </textarea
+        <textarea name="listing[description]" class="form-control" required>
+<%= listing.description %> </textarea
         >
         <div class="invalid-feedback">Please enter a short description</div>
       </div>
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-1">
         <label for="location" class="form-lable">Location</label>
         <input
           name="listing[location]"
@@ -80,7 +80,8 @@
         <div class="invalid-feedback">Location should be Valid</div>
       </div>
       <br />
-      <button class="btn btn-dark edit-btn mt-3">Edit</button>
+      <button class="btn btn-dark edit-btn mb-2">Edit</button>
+      <br />
     </form>
   </div>
 </div>

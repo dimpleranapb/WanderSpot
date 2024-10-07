@@ -11,21 +11,26 @@
     <h3 class="mb-3 text-center"><%= listing.title %></h3>
 
     <!-- Card Component -->
-    <div class="card shadow-lg mb-4 p-3 border rounded">
+    <div class="card shadow-lg mb-5 p-3 border rounded">
       <!-- Card Image with Lazy Loading -->
       <img
         src="<%= listing.image.url %>"
-        class="card-img-top show-img rounded-top"
+        class="card-img-top show-img rounded-top mb-2"
         alt="<%= listing.title %>"
         loading="lazy"
       />
 
       <!-- Card Body -->
       <div class="card-body">
-        <p class="text-muted mb-1"><i>@<%= listing.owner.username %></i></p>
+        <p class="text-muted mb-1">
+          <i class="fas fa-user-circle"></i>
+          <!-- User icon -->
+          <b>Added by :</b><i>@<%= listing.owner.username %></i>
+        </p>
         <p class="card-text mb-2"><%= listing.description %></p>
+        <b>Pricing:</b>
         <p class="card-text text-success fw-bold mb-2">
-          &#8377;<%= listing.price.toLocaleString("en-IN") %>
+          &#8377;<%= listing.price.toLocaleString("en-IN") %> / Night
         </p>
         <p class="card-text">
           <strong>Location:</strong> <%= listing.location %>, <%=

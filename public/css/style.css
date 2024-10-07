@@ -85,7 +85,7 @@ body {
 
 .card-img-top {
   border-radius: 1rem !important;
-  width: 100% !important; /* Fixed the missing unit */
+  width: 100% !important; 
   object-fit: cover !important;
 }
 
@@ -120,7 +120,8 @@ body {
 
 /* Show Page */
 .show-img {
-  height: 30vh;
+  height: 50vh;
+  object-fit: contain;
 }
 
 .btns {

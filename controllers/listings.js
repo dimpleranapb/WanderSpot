@@ -11,7 +11,6 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.renderNewForm = (req, res) => {
-  console.log(req.user);
   res.render("listings/new.ejs");
 };
 
@@ -29,7 +28,6 @@ module.exports.showListing = async (req, res) => {
     req.flash("error", "Listing you requested does not exist");
     return res.redirect("/listings");
   }
-  console.log(listing);
 
   res.render("listings/show.ejs", { listing });
 };
@@ -44,15 +42,12 @@ module.exports.createListing = async (req, res, next) => {
 
   let url = req.file.path;
   let filename = req.file.filename;
-  // console.log(url, "..", filename);
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
 
   newListing.geometry = response.body.features[0].geometry;
-  let savedListing = await newListing.save();
-
-  console.log(savedListing);
+  await newListing.save();
   req.flash("success", "New Listing Created");
   res.redirect("/listings");
 };

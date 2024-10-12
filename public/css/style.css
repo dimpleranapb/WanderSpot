@@ -78,16 +78,34 @@ body {
 
 
 /* Card */
+/* Listing card styling */
 .listing-card {
+  position: relative;
   border: none !important;
   margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.listing-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
 .card-img-top {
+  transition: transform 0.3s ease;
   border-radius: 1rem !important;
   width: 100% !important; 
   object-fit: cover !important;
 }
+
+.listing-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
 
 .card-body {
   padding: 0 !important;

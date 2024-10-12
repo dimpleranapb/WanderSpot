@@ -84,15 +84,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.get("/demouser", async(req, res) => {
-//     let fakeUser = new User({
-//         email: "student@gmail.com",
-//         username: "delta-student"
-//     });
-//     let registeredUser = await User.register(fakeUser, "helloworld");
-//     res.send(registeredUser);
-// })
-
 // Routes
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
@@ -108,11 +99,6 @@ app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
   res.status(statusCode).render("listings/error.ejs", { err });
 });
-
-// // Root route
-// app.get("/", (req, res) => {
-//     res.send("This is root");
-// });
 
 // Start server
 app.listen(8080, () => {

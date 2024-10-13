@@ -6,10 +6,23 @@ const express = require("express");
 const router = express.Router();
 
 module.exports.index = async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("listings/index.ejs", { allListings });
-};
+  try {
+    // Fetch all listings and populate the reviews
+    const allListings = await Listing.find({}).populate({
+      path: "reviews",
+      select: "rating" 
+    });
+    allListings.forEach(listing => {
+      console.log(`${listing.averageRating}  `);
+    });
 
+    // Render the view with the listings
+    res.render("listings/index.ejs", { allListings });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 module.exports.renderNewForm = (req, res) => {
   res.render("listings/new.ejs");
 };

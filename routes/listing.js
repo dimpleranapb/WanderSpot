@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
-const { listingSchema } = require("../schema.js");
-const Listing = require("../models/listing.js");
 const { isLoggedIn, validateListing, isOwner } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 const multer = require("multer");
@@ -17,7 +14,7 @@ router.get("/search", wrapAsync(listingController.searchListings));
 // Route to get all listings and create a new listing
 router
   .route("/")
-  .get(wrapAsync(listingController.index)) // Get all listings
+  .get(wrapAsync(listingController.index)) 
   .post(
     isLoggedIn, // Ensure user is logged in
     upload.single("listing[image]"), // Handle file upload

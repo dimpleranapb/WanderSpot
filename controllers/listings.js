@@ -10,16 +10,14 @@ module.exports.index = async (req, res) => {
     // Fetch all listings and populate the reviews
     const allListings = await Listing.find({}).populate({
       path: "reviews",
-      select: "rating" 
+      select: "rating",
     });
-    allListings.forEach(listing => {
-      console.log(`${listing.averageRating}  `);
+    allListings.forEach((listing) => {
     });
 
     // Render the view with the listings
     res.render("listings/index.ejs", { allListings });
   } catch (error) {
-    console.error(error);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -101,12 +99,12 @@ module.exports.destroyListing = async (req, res) => {
 };
 
 module.exports.searchListings = async (req, res) => {
-  const { query } = req.query; // Get the search query from the request
+  const { query } = req.query; 
   try {
     const searchResult = await Listing.find({
       $or: [
-        { title: { $regex: query, $options: "i" } }, // Case-insensitive search in title
-        { description: { $regex: query, $options: "i" } }, // Case-insensitive search in description
+        { title: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } }, 
       ],
     });
 

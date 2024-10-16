@@ -49,7 +49,6 @@ body {
   justify-content: center;
 }
 
-
 .f-info-socials i {
   margin-right: 1rem;
   font-size: 1.5rem; /* Increased icon size */
@@ -60,7 +59,6 @@ body {
   color: #007bff; /* Change color on hover (Bootstrap primary color) */
   transform: scale(1.1); /* Slightly enlarge the icon on hover */
 }
-
 
 .f-info-links a {
   text-decoration: none;
@@ -75,7 +73,6 @@ body {
 .f-info-brand {
   font-weight: bold; /* Make brand text bold */
 }
-
 
 /* Card */
 /* Listing card styling */
@@ -94,18 +91,16 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-
 .card-img-top {
   transition: transform 0.3s ease;
   border-radius: 1rem !important;
-  width: 100% !important; 
+  width: 100% !important;
   object-fit: cover !important;
 }
 
 .listing-card:hover .card-img-top {
   transform: scale(1.05);
 }
-
 
 .card-body {
   padding: 0 !important;
@@ -119,6 +114,31 @@ body {
   text-decoration: none;
 }
 
+#ratings {
+  background-color: #ffe6e6;
+  border-radius: 6px;
+  display: inline-flex;
+  padding: 0 4px 0 4px;
+  align-items: center;
+}
+
+.rating-badge {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.no-rating {
+  background-color: gray;
+  border-radius: 6px;
+  color: white;
+  padding: 0 4px 0 4px;
+}
 /* Card Hover Effect */
 .card-img-overlay {
   opacity: 0;

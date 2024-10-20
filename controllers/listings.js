@@ -12,8 +12,7 @@ module.exports.index = async (req, res) => {
       path: "reviews",
       select: "rating",
     });
-    allListings.forEach((listing) => {
-    });
+    allListings.forEach((listing) => {});
 
     // Render the view with the listings
     res.render("listings/index.ejs", { allListings });
@@ -99,12 +98,12 @@ module.exports.destroyListing = async (req, res) => {
 };
 
 module.exports.searchListings = async (req, res) => {
-  const { query } = req.query; 
+  const { query } = req.query;
   try {
     const searchResult = await Listing.find({
       $or: [
         { title: { $regex: query, $options: "i" } },
-        { description: { $regex: query, $options: "i" } }, 
+        { description: { $regex: query, $options: "i" } },
       ],
     });
 
